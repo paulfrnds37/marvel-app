@@ -1,8 +1,8 @@
 
 import logo from './logo.svg';
 import './App.css';
-import data from "./characters.json"
-const characters = require("./characters.json");
+import data from "./data/characters.json"
+const characters = require("./data/characters.json");
 
 function Title({ color = 'red', children, hidden = false, ...props }) {
  if (hidden) {
