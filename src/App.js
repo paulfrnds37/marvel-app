@@ -1,22 +1,12 @@
-
-import NumberofCharacters from './components/NumberofCharacters'
-import ListeCharacters from './components/ListeCharacters'
-import Header from './components/Header'
-import Details from './components/Details-test';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import routes from './routes';
 
 
 
-const characters = require("./characters.json")
+const router = createBrowserRouter(routes)
 
-function App() {
-return (
- <>
- <Header color="black" id="my-id" data-demo="demo">Liste de personnage</Header>
- <ListeCharacters characters={characters} />
- <NumberofCharacters characters={characters}/>
- <Details character={characters[0]}/> 
-</>
-);
+export default function App() {
+  return (
+    <RouterProvider router={router} />
+  );
 }
-
-export default App;

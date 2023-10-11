@@ -1,4 +1,4 @@
-function Header({ color = 'red', children, hidden = false, ...props }) {
+function Title({ color = 'red', children, hidden = false, ...props }) {
     if (hidden) {
     return null;
     }
@@ -6,4 +6,4 @@ function Header({ color = 'red', children, hidden = false, ...props }) {
     return (<h1 style={{color: color}} {...props}>{children}</h1>);
    }
    
-export default Header;
+export default Title;

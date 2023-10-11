@@ -1,5 +1,6 @@
+import React, { useState } from 'react';
 
-function Details({character}) {
+function DetailCharacters({character}) {
     const imageUrl = `${character.thumbnail.path}/standard_large.${character.thumbnail.extension}`;
     return (
 
@@ -8,8 +9,10 @@ function Details({character}) {
             <img src={imageUrl} alt={character.name} />
         </div>
 
+        
+
 
     )
 }
 
-export default Details;
+export default DetailCharacters;
