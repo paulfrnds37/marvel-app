@@ -3,21 +3,24 @@ import { Link } from "react-router-dom";
 import Charac from "./charac";
 import DetailCharacters from "./component/details";
 
+
 const routes =  [
     {
         path: "/",
         element: <Root />,
         children: [
             {
-                path: "blog",
-                element: <DetailCharacters/>
+                path: "/",
+                element: <Charac />
             },
             {
-                path: "contact",
-                element: <Charac/>
-            }
+                path: "/characters/:id",
+                element: <DetailCharacters />
+            },
+
         ]
     }
+
 ]
 
 function Root() {
@@ -25,16 +28,14 @@ function Root() {
         <>
             <header>
                 <nav>
-                    <Link to="/blog">Blog</Link>
-                    <Link to="/contact">Characters</Link>
+                    <Link to="/">Home</Link>
+                    <Link to="/characters/:id">Characters</Link>
                 </nav>
             </header>
             <div className="content">
                 <Outlet />
             </div>
-            <footer>
-                Footer
-            </footer>
+
         </>
     );
 }
