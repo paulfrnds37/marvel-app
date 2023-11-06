@@ -1,43 +1,18 @@
-import { Outlet } from "react-router";
-import { Link } from "react-router-dom";
-import Charac from "./charac";
-import DetailCharacters from "./component/details";
+import Layout from "./Layout";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage1";
+import CharactersPage from "./pages/CharactersPage";
 
-
-const routes =  [
+const routes = [
     {
         path: "/",
-        element: <Root />,
+        element: <Layout />,
         children: [
-            {
-                path: "/",
-                element: <Charac />
-            },
-            {
-                path: "/characters/:id",
-                element: <DetailCharacters />
-            },
-
-        ]
-    }
-
-]
-
-function Root() {
-    return (
-        <>
-            <header>
-                <nav>
-                    <Link to="/">Home</Link>
-                    <Link to="/characters/:id">Characters</Link>
-                </nav>
-            </header>
-            <div className="content">
-                <Outlet />
-            </div>
-
-        </>
-    );
-}
+            { path: "/", element: <CharactersPage /> },
+            { path: "/about", element: <AboutPage /> },
+            { path: "/contact", element: <ContactPage /> },
+        ],
+    },
+];
 
 export default routes;
