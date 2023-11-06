@@ -1,6 +1,6 @@
 import Layout from "./Layout";
 import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
+import ContactPage from "./pages/ContactPage1";
 import CharactersPage from "./pages/CharactersPage";
 
 const routes = [
