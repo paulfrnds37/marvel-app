@@ -11,4 +11,8 @@ npm install
 
 npm start
 
+## test
+
+nmp test
+
 L'application est accessible à l'adresse http://localhost:3000
