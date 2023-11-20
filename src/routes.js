@@ -1,6 +1,6 @@
 import Layout from "./Layout";
-import AboutPage from "./pages/AboutPage1";
-import ContactPage from "./pages/ContactPage2";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import CharactersPage from "./pages/CharactersPage";
 
 import CharacterDetailPage from "./pages/CharacterDetailPage";
@@ -14,7 +14,17 @@ const routes = [
             {
                 path: "/",
                 element: <CharactersPage />,
-                loader: () => getCharacters(),
+                loader: ({request}) => {
+                    const url = new URL(request.url);
+                    const orderBy = url.searchParams.get("orderBy");
+                    const order = url.searchParams.get("order");
+
+                    if (orderBy && order) {
+                        return getCharacters(orderBy, order);
+                    }else{
+                        return getCharacters();
+                    }
+                },
             },
             {
                 path: "/characters/:id",
