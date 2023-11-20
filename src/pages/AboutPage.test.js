@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import AboutPage from './AboutPage1';
+import AboutPage from './AboutPage';
 
 test('renders About Us message', () => {
   // when

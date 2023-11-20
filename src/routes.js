@@ -1,6 +1,6 @@
 import Layout from "./Layout";
-import AboutPage from "./pages/AboutPage1";
-import ContactPage from "./pages/ContactPage2";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import CharactersPage from "./pages/CharactersPage";
 
 import CharacterDetailPage from "./pages/CharacterDetailPage";

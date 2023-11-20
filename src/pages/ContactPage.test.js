@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import ContactPage from './ContactPage2';
+import ContactPage from './ContactPage';
 
 test('renders Contact us message', () => {
     // when
