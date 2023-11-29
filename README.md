@@ -19,5 +19,9 @@ npm test
 
 npm run test:converage
 
+## fixe
+
+npm audit fix
+
 
 L'application est accessible à l'adresse http://localhost:3000
