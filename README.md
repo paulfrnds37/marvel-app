@@ -11,4 +11,13 @@ npm install
 
 npm start
 
+## test
+
+npm test
+
+## coverage
+
+npm run test:converage
+
+
 L'application est accessible à l'adresse http://localhost:3000
