@@ -114,4 +114,17 @@ describe('CharactersPage', () => {
             expect(orderBySelect).toHaveValue(orderBy);
         });
     });
+    test('renders character list', () => {
+        const characters = [{
+          name: 'Test Character',
+          modified: new Date().toISOString(),
+        }];
+      
+        render(<CharacterPage characters={characters} />);
+        const nameElement = screen.getByText(/Test Character/i);
+        expect(nameElement).toBeInTheDocument();
+      
+        const dateElement = screen.getByText(/\/\d{4}/); // regex to match the date format
+        expect(dateElement).toBeInTheDocument();
+      });
 });

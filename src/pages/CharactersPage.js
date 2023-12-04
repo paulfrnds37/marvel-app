@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CharactersList } from "../components/CharactersList";
+import CharacterDetail from '../components/CharacterDetail';
 import { NumberOfCharacters } from "../components/NumberOfCharacters";
-
 import { useLoaderData } from 'react-router';
 import { useSearchParams } from 'react-router-dom';
 
@@ -23,6 +23,9 @@ const CharactersPage = () => {
     React.useEffect(() => {
         setSearchParams({ order, orderBy })
     }, [order, orderBy, setSearchParams])
+        // retrieve the character using the useLoaderData hook
+    const character = useLoaderData();
+       
 
     return (
         <>
@@ -39,8 +42,10 @@ const CharactersPage = () => {
             <select data-testid='order' value={order} onChange={(e) => setOrder(e.target.value)}>
                 <option value="asc">Ascending</option>
                 <option value="desc">Descending</option>
-            </select>         
-            <CharactersList characters={characters} />
+            </select>     
+              
+            <CharactersList characters={characters}  />    <CharacterDetail character={character} />
+            
             <br />
             <NumberOfCharacters characters={characters} />
         </>

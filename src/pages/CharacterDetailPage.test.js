@@ -39,7 +39,7 @@ describe('CharacterDetailPage', () => {
 
     test('render CharacterDetailPage component', () => {
         // when
-
+        
         // then
         render(<CharacterDetailPage />, { wrapper: BrowserRouter });
 
@@ -71,5 +71,26 @@ describe('CharacterDetailPage', () => {
 
         // expect to a an div with class "recharts-wrapper"
         expect(document.querySelector('.recharts-wrapper')).toBeInTheDocument();
+
+        render(<CharacterDetailPage character={character} />);
+        const nameElement = screen.getByText(/Test Character/i);
+        expect(nameElement).toBeInTheDocument();
+      
+        const dateElement = screen.getByText(/\/\d{4}/); // regex to match the date format
+        expect(dateElement).toBeInTheDocument();
+
     });
+    test('renders character detail', () => {
+        const character = {
+          name: 'Test Character',
+          modified: new Date().toISOString(),
+        };
+      
+        render(<CharacterDetailPage character={character} />);
+        const nameElement = screen.getByText(/Test Character/i);
+        expect(nameElement).toBeInTheDocument();
+      
+        const dateElement = screen.getByText(/\/\d{4}/); // regex to match the date format
+        expect(dateElement).toBeInTheDocument();
+      });
 });
