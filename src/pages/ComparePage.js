@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { getCharacters } from '../api/character-api';
-import { PureComponent } from 'react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
+
+
 
 
 const CompareCharactersPage = () => {
@@ -16,6 +17,7 @@ const CompareCharactersPage = () => {
     const options = characters.map((character, index) => ({
         value: index,
         label: character.name,
+        capaci: character.capacities,
     }));
 
     // set the default options to the first two characters
@@ -33,6 +35,8 @@ const CompareCharactersPage = () => {
         setOption1(characters[0]);
         setOption2(characters[1]);
     }, []);
+
+
 
     return (
         <>
@@ -77,20 +81,17 @@ const CompareCharactersPage = () => {
             <p style={centerStyle}>
             {option1?.name} vs {option2?.name}
             </p>
-
-
-
-            <div>
-            {/* Your select dropdowns here */}
-
-            <RadarChart cx={300} cy={250} outerRadius={150} width={600} height={500} data={characters}>
+            <div style={{flex: '50%'}}>
+            <h3>Using Recharts</h3>
+            <RadarChart cx={300} cy={250} outerRadius={150} width={600} height={500} data={options}>
                 <PolarGrid />
-                <PolarAngleAxis dataKey="label" />
+                <PolarAngleAxis dataKey={option1?.capaci} />
                 <PolarRadiusAxis />
-                <Radar name={selectedCharacter1.label} dataKey="capacities" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-                <Radar name={selectedCharacter2.label} dataKey="capacities" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
+                <Radar name={option1?.label} dataKey={option1?.label}  stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                <Radar name={option2?.label} dataKey={option2?.label}  stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
             </RadarChart>
-        </div>
+            </div>
+
 
         </>
     );
